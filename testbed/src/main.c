@@ -2,15 +2,14 @@
 #include <core/asserts.h>
 
 int main(void) {
-    KFATAL("A test message: %f", 3.14f);
-    KERROR("A test message: %f", 3.14f);
-    KWARN("A test message: %f", 3.14f);
-    KINFO("A test message: %f", 3.14f);
-    KDEBUG("A test message: %f", 3.14f);
-    KTRACE("A test message: %f", 3.14f);
+    MKN_FATAL("A test message: %f", 3.14f);
+    MKN_ERROR("A test message: %f", 3.14f);
+    MKN_WARN("A test message: %f", 3.14f);
+    MKN_INFO("A test message: %f", 3.14f);
+    MKN_DEBUG("A test message: %f", 3.14f);
+    MKN_TRACE("A test message: %f", 3.14f);
 
-    KASSERT(1 == 0);
+    MKN_ASSERT(1 == 0);
 
-    system("pause");
     return 0;
 }

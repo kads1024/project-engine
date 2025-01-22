@@ -8,7 +8,7 @@
 #define LOG_TRACE_ENABLED 1
 
 // Disable debug and trace logging for release builds.
-#if KRELEASE == 1
+#if MKN_RELEASE == 1
 #define LOG_DEBUG_ENABLED 0
 #define LOG_TRACE_ENABLED 0
 #endif
@@ -25,44 +25,44 @@ typedef enum log_level {
 b8 initialize_logging();
 void shutdown_logging();
 
-KAPI void log_output(log_level level, const char* message, ...);
+MKN_API void log_output(log_level level, const char* message, ...);
 
 // Logs a fatal-level message.
-#define KFATAL(message, ...) log_output(LOG_LEVEL_FATAL, message, ##__VA_ARGS__);
+#define MKN_FATAL(message, ...) log_output(LOG_LEVEL_FATAL, message, ##__VA_ARGS__);
 
-#ifndef KERROR
+#ifndef MKN_ERROR
 // Logs an error-level message.
-#define KERROR(message, ...) log_output(LOG_LEVEL_ERROR, message, ##__VA_ARGS__);
+#define MKN_ERROR(message, ...) log_output(LOG_LEVEL_ERROR, message, ##__VA_ARGS__);
 #endif
 
 #if LOG_WARN_ENABLED == 1
 // Logs a warning-level message.
-#define KWARN(message, ...) log_output(LOG_LEVEL_WARN, message, ##__VA_ARGS__);
+#define MKN_WARN(message, ...) log_output(LOG_LEVEL_WARN, message, ##__VA_ARGS__);
 #else
 // Does nothing when LOG_WARN_ENABLED != 1
-#define KWARN(message, ...)
+#define MKN_WARN(message, ...)
 #endif
 
 #if LOG_INFO_ENABLED == 1
 // Logs a info-level message.
-#define KINFO(message, ...) log_output(LOG_LEVEL_INFO, message, ##__VA_ARGS__);
+#define MKN_INFO(message, ...) log_output(LOG_LEVEL_INFO, message, ##__VA_ARGS__);
 #else
 // Does nothing when LOG_INFO_ENABLED != 1
-#define KINFO(message, ...)
+#define MKN_INFO(message, ...)
 #endif
 
 #if LOG_DEBUG_ENABLED == 1
 // Logs a debug-level message.
-#define KDEBUG(message, ...) log_output(LOG_LEVEL_DEBUG, message, ##__VA_ARGS__);
+#define MKN_DEBUG(message, ...) log_output(LOG_LEVEL_DEBUG, message, ##__VA_ARGS__);
 #else
 // Does nothing when LOG_DEBUG_ENABLED != 1
-#define KDEBUG(message, ...)
+#define MKN_DEBUG(message, ...)
 #endif
 
 #if LOG_TRACE_ENABLED == 1
 // Logs a trace-level message.
-#define KTRACE(message, ...) log_output(LOG_LEVEL_TRACE, message, ##__VA_ARGS__);
+#define MKN_TRACE(message, ...) log_output(LOG_LEVEL_TRACE, message, ##__VA_ARGS__);
 #else
 // Does nothing when LOG_TRACE_ENABLED != 1
-#define KTRACE(message, ...)
+#define MKN_TRACE(message, ...)
 #endif
