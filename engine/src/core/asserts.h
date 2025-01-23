@@ -15,7 +15,7 @@
 
 MKN_API void report_assertion_failure(const char* expression, const char* message, const char* file, i32 line);
 
-#define MKN_ASSERT(expr)                                                \
+#define MKN_ASSERT(expr)                                             \
     {                                                                \
         if (expr) {                                                  \
         } else {                                                     \
@@ -24,7 +24,7 @@ MKN_API void report_assertion_failure(const char* expression, const char* messag
         }                                                            \
     }
 
-#define MKN_ASSERT_MSG(expr, message)                                        \
+#define MKN_ASSERT_MSG(expr, message)                                     \
     {                                                                     \
         if (expr) {                                                       \
         } else {                                                          \
@@ -34,7 +34,7 @@ MKN_API void report_assertion_failure(const char* expression, const char* messag
     }
 
 #ifdef _DEBUG
-#define MKN_ASSERT_DEBUG(expr)                                          \
+#define MKN_ASSERT_DEBUG(expr)                                       \
     {                                                                \
         if (expr) {                                                  \
         } else {                                                     \
